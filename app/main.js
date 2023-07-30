@@ -1,6 +1,6 @@
-/**
+/********************
  * Timer scripts
- */
+ *******************/
 
 // dom selection
 const timerControllerWrap = document.querySelector(".controller-wrap");
@@ -10,9 +10,9 @@ const timerOutput = document.querySelector(".timer-output");
 let count = 0;
 let intervalVar;
 
-/**
+/********************
  * Start Timer
- */
+ *******************/
 timerControllerWrap.children[0].onclick = () => {
   intervalVar = setInterval(() => {
     count++;
@@ -20,11 +20,11 @@ timerControllerWrap.children[0].onclick = () => {
   }, 1000);
 };
 
-/**
+/********************
  *
  * @param {*} seconds
  * @returns hour, min, sec
- */
+ *******************/
 function timeConverter(seconds) {
   let time;
   if (seconds < 60) {
@@ -42,25 +42,25 @@ function timeConverter(seconds) {
   return time;
 }
 
-/**
+/********************
  * Pause Timer
- */
+ *******************/
 timerControllerWrap.children[1].onclick = () => {
   clearInterval(intervalVar);
 };
 
-/**
+/********************
  * Reset Timer
- */
+ *******************/
 timerControllerWrap.children[2].onclick = () => {
   clearInterval(intervalVar);
   count = 0;
   timerOutput.innerHTML = count;
 };
 
-/**
+/********************
  * Countdown Timer script
- */
+ *******************/
 
 // selection
 const timerInput = document.getElementById("count_time");
@@ -72,9 +72,9 @@ const msg = document.querySelector("#msg");
 let countDownTime = 0;
 let countDownInt;
 
-/**
+/********************
  * Countdown start
- */
+ *******************/
 countdownControls.children[0].onclick = () => {
     countDownFunc();
 };
@@ -84,13 +84,13 @@ timerInput.onchange = () => {
     countDownTime = timerInput.value.trim();
 }
 
-/**
+/********************
  * countdown function
- */
+ *******************/
 function countDownFunc(){
       // timer input validation
   if (!timerInput.value.trim()) {
-    msg.innerHTML = createAlert("Please type time");
+    msg.innerHTML = createAlert("Please type number");
   } else if (!isNumber(timerInput.value)) {
     msg.innerHTML = createAlert("Allowed number only");
   } else {
@@ -118,16 +118,16 @@ function countDownFunc(){
   }
 }
 
-/**
+/********************
  * Countdown Pause
- */
+ ******************/
 countdownControls.children[1].onclick = () => {
   clearInterval(countDownInt);
 };
 
-/**
+/******************
  * Countdown reset
- */
+ ******************/
 countdownControls.children[2].onclick = () => {
   clearInterval(countDownInt);
   countDownTime = 0;
